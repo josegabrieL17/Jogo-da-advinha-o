@@ -1,6 +1,6 @@
-print('*********************************')
-print('Bem vindo, ao JOGO DE ADIVINHAÇÃO')
-print('*********************************')
+print('***********************************')
+print('*Bem vindo, ao JOGO DE ADIVINHAÇÃO*')
+print('***********************************')
 
 numeroSecreto = 38
 
