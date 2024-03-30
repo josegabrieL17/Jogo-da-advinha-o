@@ -1,32 +1,36 @@
-import random;
+import random
 
 print('***********************************')
-print('*Bem vindo, ao JOGO DA ADIVINHAÇÃO*')
+print('* Bem vindo, ao JOGO DA ADIVINHAÇÃO*')
 print('***********************************')
 
+# Definindo número secreto
+numeroSecreto = round(random.random() * 100)
 
-#definindo número secreto
-numeroSecreto = round(random.random()*100)
-
-#definindo o número de tentativas
+# Definindo o número de tentativas
 numeroTentativas = 5
-rodada = 1
 
-while(rodada <= numeroTentativas):
-    print('Tentativas' ,rodada,'de' ,numeroTentativas, "Digite um número entre 1-100")
-    numeroTentativas = numeroTentativas -1
-    print(numeroSecreto)
+while numeroTentativas > 0:
+    print('*' * 35)  # Linha separadora
+    print('Tentativas restantes:', numeroTentativas)
+    print('Digite um número entre 1-100')
 
-#recebendo o chute
+    # Recebendo o chute
     chuteString = input('Digite um número: ')
     chute = int(chuteString)
 
-#declarando as condições
-    if (numeroSecreto == chute):
+    # Declarando as condições
+    if numeroSecreto == chute:
         print('Você acertou!')
         break
-    elif(chute>numeroSecreto):
-        print("Você errou! o número é menor")
+    elif chute > numeroSecreto:
+        print("Você errou! O número é menor")
     else:
-        print('Você errou! O número secreto é maior')
-    rodada = rodada +1
+        print('Você errou! O número é maior')
+
+    numeroTentativas -= 1
+
+# Se o jogador usou todas as tentativas e não acertou
+if numeroTentativas == 0:
+    print('-' * 50)  # Linha separadora
+    print('Suas tentativas acabaram. O número secreto era:', numeroSecreto, "Erro USB")
