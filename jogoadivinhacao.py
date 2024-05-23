@@ -1,51 +1,53 @@
 import random
 
-print('***********************************')
-print('* Bem vindo, ao JOGO DA ADIVINHAÇÃO*')
-print('***********************************')
+def jogar_adivinhacao():
 
-# Definindo número secreto
-numeroSecreto = round(random.random() * 100)
+    print('***********************************')
+    print('* Bem vindo, ao JOGO DA ADIVINHAÇÃO*')
+    print('***********************************')
 
-# Definindo o número de tentativas
-numeroTentativas = 0
-#Pontos de usuarios
-pontos = 1000
+    # Definindo número secreto
+    numeroSecreto = round(random.random() * 100)
 
-print("Qual sua difículdade?")
-print("(1)Fácil (2)Médio (3)Difícil")
-nivel = int(input("Defina sua dificuldade: "))
+    # Definindo o número de tentativas
+    numeroTentativas = 0
+    #Pontos de usuarios
+    pontos = 1000
 
-if(nivel == 1):
-    numeroTentativas = 20
-elif(nivel == 2):
-    numeroTentativas = 13
-else:
-    numeroTentativas = 5
+    print("Qual sua difículdade?")
+    print("(1)Fácil (2)Médio (3)Difícil")
+    nivel = int(input("Defina sua dificuldade: "))
 
-while numeroTentativas > 0:
-    print('*' * 35)  # Linha separadora
-    print('Tentativas restantes:', numeroTentativas)
-    print('Digite um número entre 1-100')
-
-    # Recebendo o chute
-    chuteString = input('Digite um número: ')
-    chute = int(chuteString)
-
-    # Declarando as condições
-    if numeroSecreto == chute:
-        print('Você acertou! E fez {} pontos'.format(pontos))
-        break
-    elif chute > numeroSecreto:
-        print("Você errou! O número é menor")
+    if(nivel == 1):
+        numeroTentativas = 20
+    elif(nivel == 2):
+        numeroTentativas = 13
     else:
-        print('Você errou! O número é maior')
-    pontosPerdidos = abs(numeroSecreto - int(chuteString)) #40-20 = 20
-    pontos = pontos - pontosPerdidos
+        numeroTentativas = 5
 
-    numeroTentativas -= 1
+    while numeroTentativas > 0:
+        print('*' * 35)  # Linha separadora
+        print('Tentativas restantes:', numeroTentativas)
+        print('Digite um número entre 1-100')
 
-# Se o jogador usou todas as tentativas e não acertou
-if numeroTentativas == 0:
-    print('-' * 50)  # Linha separadora
-    print('Suas tentativas acabaram. O número secreto era:', numeroSecreto, "Erro USB")
+        # Recebendo o chute
+        chuteString = input('Digite um número: ')
+        chute = int(chuteString)
+
+        # Declarando as condições
+        if numeroSecreto == chute:
+            print('Você acertou! E fez {} pontos'.format(pontos))
+            break
+        elif chute > numeroSecreto:
+            print("Você errou! O número é menor")
+        else:
+            print('Você errou! O número é maior')
+        pontosPerdidos = abs(numeroSecreto - int(chuteString)) #40-20 = 20
+        pontos = pontos - pontosPerdidos
+
+        numeroTentativas -= 1
+
+    # Se o jogador usou todas as tentativas e não acertou
+    if numeroTentativas == 0:
+        print('-' * 50)  # Linha separadora
+        print('Suas tentativas acabaram. O número secreto era:', numeroSecreto, "Erro USB")
